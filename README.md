@@ -20,7 +20,7 @@ Presentation:
 
 ### Contact information
 
-Name | Git id | 
+Name | Email | 
 --- | --- |
 Ryan Ocampo| rocampo3@student.gsu.edu|
 Ortagus Winfrey|owinfrey1@student.gsu.edu|
