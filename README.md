@@ -9,4 +9,4 @@ https://docs.google.com/presentation/d/1tgRAHiodqkOdhrVRMOLWDro1yuRn1F4bRdSIJBrd
 Name | Git id | 
 --- | --- |
 Ryan Ocampo| rocampo3@student.gsu.edu|
-
+Ortagus Winfrey|owinfrey1@student.gsu.edu|
