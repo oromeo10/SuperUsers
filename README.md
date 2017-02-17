@@ -24,3 +24,4 @@ Name | Email |
 --- | --- |
 Ryan Ocampo| rocampo3@student.gsu.edu|
 Ortagus Winfrey|owinfrey1@student.gsu.edu|
+Dalya Khatun | dkhatun1@student.gsu.edu
