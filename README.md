@@ -6,6 +6,9 @@ https://docs.google.com/presentation/d/1tgRAHiodqkOdhrVRMOLWDro1yuRn1F4bRdSIJBrd
 Use Link to edit ER diagrams as needed:
 https://docs.google.com/drawings/d/13CeoNYoTCiudHOLjVUFUBP14-ybRLXxP2oabJVh8cF4/edit?usp=drive_web
 
+Link for ER Diagram without attributes
+https://docs.google.com/drawings/d/1_YpNiWyHLYcBRUgULG6Cn4ce0NQaIu2UbLZLitycam4/edit?usp=sharing
+
 
 Presentation:
 * Each team should present their Project Problem
