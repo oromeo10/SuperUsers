@@ -9,9 +9,6 @@ https://docs.google.com/presentation/d/1tgRAHiodqkOdhrVRMOLWDro1yuRn1F4bRdSIJBrd
 Use Link to edit ER diagrams as needed:
 https://docs.google.com/drawings/d/13CeoNYoTCiudHOLjVUFUBP14-ybRLXxP2oabJVh8cF4/edit?usp=drive_web
 
-ER diagram without attributes:
-https://docs.google.com/drawings/d/1e1OKmW1mN3vCJBVhUmxV-PgmOagyIyJVj1Wf_CMiFRg/edit?usp=sharing
-
 *participation- the minimum number of relationship instances that each entity can participate in 
 
 Link for ER Diagram without attributes
