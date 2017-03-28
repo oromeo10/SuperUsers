@@ -3,6 +3,9 @@
 GroupMe messaging Link:
 https://groupme.com/en-US/ 
 
+Use this Link to edit/view the NEW ERD:
+https://docs.google.com/drawings/d/13YBOwSf4Me-V0G9nmUYpoN7F4JkrchXtUy3UNRaYL04/edit?usp=sharing
+
 Use this Link to edit the group presentation as needed:
 https://docs.google.com/presentation/d/1tgRAHiodqkOdhrVRMOLWDro1yuRn1F4bRdSIJBrdSKs/edit#slide=id.gc6f59039d_0_0
 
