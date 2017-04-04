@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema humanresources
+-- Schema hrdb
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema humanresources
+-- Schema hrdb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `humanresources` DEFAULT CHARACTER SET utf8 ;
-USE `humanresources` ;
+CREATE SCHEMA IF NOT EXISTS `hrdb` DEFAULT CHARACTER SET utf8 ;
+USE `hrdb` ;
 
 -- -----------------------------------------------------
--- Table `humanresources`.`Department`
+-- Table `hrdb`.`Department`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `humanresources`.`Department` (
+CREATE TABLE IF NOT EXISTS `hrdb`.`Department` (
   `Department_Name` INT UNSIGNED NOT NULL,
   `DID` INT NOT NULL,
   `D_ name` VARCHAR(15) NOT NULL,
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `humanresources`.`Store`
+-- Table `hrdb`.`Store`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `humanresources`.`Store` (
+CREATE TABLE IF NOT EXISTS `hrdb`.`Store` (
   `SID` INT NOT NULL,
   `S_name` VARCHAR(15) NOT NULL,
   `S_phone` INT UNSIGNED NOT NULL,
@@ -41,9 +41,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `humanresources`.`Employee`
+-- Table `hrdb`.`Employee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `humanresources`.`Employee` (
+CREATE TABLE IF NOT EXISTS `hrdb`.`Employee` (
   `EID` INT NOT NULL,
   `f_name` VARCHAR(15) NOT NULL,
   `m_initial` VARCHAR(1) NULL,
@@ -65,21 +65,21 @@ CREATE TABLE IF NOT EXISTS `humanresources`.`Employee` (
   INDEX `S_ID_idx` (`S_ID` ASC),
   CONSTRAINT `D_ID`
     FOREIGN KEY (`D_ID`)
-    REFERENCES `humanresources`.`Department` (`DID`)
+    REFERENCES `hrdb`.`Department` (`DID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `S_ID`
     FOREIGN KEY (`S_ID`)
-    REFERENCES `humanresources`.`Store` (`SID`)
+    REFERENCES `hrdb`.`Store` (`SID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `humanresources`.`Position`
+-- Table `hrdb`.`Position`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `humanresources`.`Position` (
+CREATE TABLE IF NOT EXISTS `hrdb`.`Position` (
   `POSID` INT NOT NULL,
   `POS_name` VARCHAR(15) NOT NULL,
   `POS_type` VARCHAR(15) NOT NULL,
@@ -93,9 +93,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `humanresources`.`Training`
+-- Table `hrdb`.`Training`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `humanresources`.`Training` (
+CREATE TABLE IF NOT EXISTS `hrdb`.`Training` (
   `L_train` INT NOT NULL,
   `T_start` DATE NOT NULL,
   `Trainer` VARCHAR(15) NOT NULL,
@@ -104,16 +104,16 @@ CREATE TABLE IF NOT EXISTS `humanresources`.`Training` (
   PRIMARY KEY (`POSID`, `Date_of_hire`),
   CONSTRAINT `POSID`
     FOREIGN KEY (`POSID`)
-    REFERENCES `humanresources`.`Position` (`POSID`)
+    REFERENCES `hrdb`.`Position` (`POSID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `humanresources`.`Demographics`
+-- Table `hrdb`.`Demographics`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `humanresources`.`Demographics` (
+CREATE TABLE IF NOT EXISTS `hrdb`.`Demographics` (
   `Gender` CHAR NOT NULL,
   `Ethnicity` VARCHAR(15) NOT NULL,
   `Disability` TINYINT(1) NOT NULL,
@@ -123,9 +123,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `humanresources`.`Benefits`
+-- Table `hrdb`.`Benefits`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `humanresources`.`Benefits` (
+CREATE TABLE IF NOT EXISTS `hrdb`.`Benefits` (
   `ret` TINYINT(1) NULL,
   `Vision` TINYINT(1) NULL,
   `Dental` TINYINT(1) NULL,
@@ -136,9 +136,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `humanresources`.`Credentials`
+-- Table `hrdb`.`Credentials`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `humanresources`.`Credentials` (
+CREATE TABLE IF NOT EXISTS `hrdb`.`Credentials` (
   `Languages` VARCHAR(15) NOT NULL,
   `Year_exper` INT NOT NULL,
   `Educ_level` VARCHAR(15) NOT NULL,
