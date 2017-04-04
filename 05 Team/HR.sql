@@ -1,5 +1,8 @@
+DROP SCHEMA IF EXISTS HumanResources;
+CREATE SCHEMA HumanResources; 
 use  HumanResources; 
 
+<<<<<<< HEAD
 CREATE TABLE IF NOT EXISTS HumanResources.POSITIONS(
 	POSID	int NOT NULL, 
     POS_name	varchar(15) NOT NULL,
@@ -23,6 +26,8 @@ CREATE TABLE HumanResources.TRAINING(
     FOREIGN KEY(POSID) REFERENCES POSITIONS(POSID)
 );
 
+=======
+>>>>>>> 93d21c48339ead786ef7962303e116abd493fc80
 CREATE TABLE HumanResources.STORE(
 	SID int NOT NULL, 
     S_name varchar(15) NOT NULL, 
@@ -31,7 +36,6 @@ CREATE TABLE HumanResources.STORE(
     S_address varchar(15) NOT NULL,
     PRIMARY KEY(SID)
 );
-
 
 CREATE TABLE HumanResources.DEPARTMENT(
 	DID	int NOT NULL, 
@@ -60,8 +64,8 @@ CREATE TABLE HumanResources.EMPLOYEE(
     
     E_email	varchar(20)	NOT NULL,
     
-    -- Date_of_hire	date	NOT NULL, 
-    -- L_of_employment	int	NOT NULL, derived attribute
+    Date_of_hire	date	NOT NULL,
+    L_of_employment	int	NOT NULL,
     DID	int NOT NULL,
     SID	int NOT NULL,
     PRIMARY KEY (EID, E_ssn),
@@ -70,6 +74,19 @@ CREATE TABLE HumanResources.EMPLOYEE(
     );
     
     -- INDEX? 
+    
+CREATE TABLE HumanResources.POSITIONS(
+	POSID	int NOT NULL, 
+    POS_name	varchar(15) NOT NULL,
+    POS_type	varchar(15) NOT NULL, 
+    Hourly	int, 
+    Salary	int, 
+    Manager	varchar(15) NOT NULL, 
+    EID	int NOT NULL, 
+    Requirements	varchar(15) NOT NULL,
+    PRIMARY KEY(POSID),
+    FOREIGN KEY(EID) REFERENCES EMPLOYEE(EID)
+);
 
 CREATE TABLE HumanResources.BENEFITS(
 	401K	boolean, 
@@ -78,13 +95,14 @@ CREATE TABLE HumanResources.BENEFITS(
     Dental	boolean, 
     Temp_dis	boolean, 
     EID	int NOT NULL,
-    PRIMARY KEY(EID)
+    PRIMARY KEY(EID), 
+    FOREIGN KEY(EID) REFERENCES EMPLOYEE(EID)
 );
 
 CREATE TABLE HumanResources.DEMOGRAPHICS(
 	Gender	char NOT NULL,
     Ethnicity	varchar(15) NOT NULL, 
-    Disability	boolean, 
+    Disabiactorlity	boolean, 
     EID	int NOT NULL,
     PRIMARY KEY(EID)
 );
@@ -95,6 +113,18 @@ CREATE TABLE HumanResources.CREDENTIALS(
     Educ_level	varchar(15) NOT NULL, 
     Certifications varchar(30) NOT NULL, 
     Reference	varchar(15) NOT NULL 
+);
+
+CREATE TABLE HumanResources.TRAINING(
+	L_train	int		NOT NULL, 
+	T_start	date	NOT NULL, 
+	T_end	date	NOT NULL, 
+	Trainer	varchar(15) NOT NULL,
+	Date_of_hire	date	NOT NULL,
+	POSID	int	NOT NULL,
+	PRIMARY KEY(POSID),
+	FOREIGN KEY(POSID) REFERENCES POSITIONS(POSID)
+    -- FOREIGN KEY(Date_of_hire) REFERENCES EMPLOYEE(Date_of_hire)
 );
 
 
