@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `hrdb`.`Employee` (
   `EID` INT NOT NULL,
   `f_name` VARCHAR(15) NOT NULL,
   `m_initial` VARCHAR(1) NULL,
-  `l_name` VARCHAR(1) NOT NULL,
+  `l_name` VARCHAR(15) NOT NULL,
   `e_name` VARCHAR(31) NOT NULL,
   `E_ssn` CHAR(9) NOT NULL,
   `E_phone` INT NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `hrdb`.`Training` (
   `Trainer` VARCHAR(15) NOT NULL,
   `POSID` INT NOT NULL,
   `Date_of_hire` DATE NOT NULL,
-  PRIMARY KEY (`POSID`, `Date_of_hire`),
+  PRIMARY KEY (`POSID`),
   CONSTRAINT `POSID`
     FOREIGN KEY (`POSID`)
     REFERENCES `hrdb`.`Position` (`POSID`)
@@ -126,11 +126,11 @@ ENGINE = InnoDB;
 -- Table `hrdb`.`Benefits`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrdb`.`Benefits` (
-  `ret` TINYINT(1) NULL,
+  `EID` INT NOT NULL,
+  `ret` TINYINT(1) NULL COMMENT 'designates availability of 401k retirement plan ',
   `Vision` TINYINT(1) NULL,
   `Dental` TINYINT(1) NULL,
   `Temp_dis` TINYINT(1) NULL,
-  `EID` INT NOT NULL,
   PRIMARY KEY (`EID`))
 ENGINE = InnoDB;
 
