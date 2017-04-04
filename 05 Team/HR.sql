@@ -2,7 +2,6 @@ DROP SCHEMA IF EXISTS HumanResources;
 CREATE SCHEMA HumanResources; 
 use  HumanResources; 
 
-<<<<<<< HEAD
 CREATE TABLE IF NOT EXISTS HumanResources.POSITIONS(
 	POSID	int NOT NULL, 
     POS_name	varchar(15) NOT NULL,
@@ -26,8 +25,7 @@ CREATE TABLE HumanResources.TRAINING(
     FOREIGN KEY(POSID) REFERENCES POSITIONS(POSID)
 );
 
-=======
->>>>>>> 93d21c48339ead786ef7962303e116abd493fc80
+
 CREATE TABLE HumanResources.STORE(
 	SID int NOT NULL, 
     S_name varchar(15) NOT NULL, 
