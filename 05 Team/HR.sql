@@ -1,6 +1,6 @@
 use  HumanResources; 
 
-CREATE TABLE HumanResources.POSITIONS(
+CREATE TABLE IF NOT EXISTS HumanResources.POSITIONS(
 	POSID	int NOT NULL, 
     POS_name	varchar(15) NOT NULL,
     POS_type	varchar(15) NOT NULL, 
@@ -11,6 +11,7 @@ CREATE TABLE HumanResources.POSITIONS(
     PRIMARY KEY(POSID)
 );
 
+
 CREATE TABLE HumanResources.TRAINING(
 	L_train	int		NOT NULL, 
     T_start	date	NOT NULL, 
@@ -19,8 +20,7 @@ CREATE TABLE HumanResources.TRAINING(
     Date_of_hire	date	NOT NULL,
     POSID	int		NOT NULL,
     PRIMARY KEY(POSID),
-    FOREIGN KEY(POSID) REFERENCES POSITIONS(POSID),
-    FOREIGN KEY(Date_of_hire) REFERENCES EMPLOYEE(Date_of_hire)
+    FOREIGN KEY(POSID) REFERENCES POSITIONS(POSID)
 );
 
 CREATE TABLE HumanResources.STORE(
