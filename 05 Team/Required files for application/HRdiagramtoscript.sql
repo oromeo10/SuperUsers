@@ -113,10 +113,10 @@ ENGINE = InnoDB;
 -- Table `hrdb`.`Demographics`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrdb`.`Demographics` (
-  `Gender` CHAR NOT NULL,
-  `Ethnicity` VARCHAR(15) NOT NULL,
-  `Disability` TINYINT(1) NOT NULL,
   `EID` INT NOT NULL,
+  `Ethnicity` VARCHAR(15) NOT NULL,
+  `Gender` CHAR NOT NULL,
+  `Disability` TINYINT(1) NOT NULL,
   PRIMARY KEY (`EID`))
 ENGINE = InnoDB;
 
