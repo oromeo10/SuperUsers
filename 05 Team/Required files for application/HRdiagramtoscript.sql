@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `hrdb`.`Employee` (
   PRIMARY KEY (`EID`, `E_ssn`),
   INDEX `D_ID_idx` (`D_ID` ASC),
   INDEX `S_ID_idx` (`S_ID` ASC),
+  UNIQUE INDEX `EID_UNIQUE` (`EID` ASC),
   CONSTRAINT `D_ID`
     FOREIGN KEY (`D_ID`)
     REFERENCES `hrdb`.`Department` (`DID`)
