@@ -1,5 +1,5 @@
 <?php
-   define('DB_SERVER', 'localhost:8888');
+   define('DB_SERVER', 'localhost:3306');
    define('DB_USERNAME', 'root');
    define('DB_PASSWORD', 'Dontforget1993');
    define('DB_DATABASE', 'HRMS');
