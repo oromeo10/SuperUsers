@@ -1,6 +1,31 @@
 <!-- this is the login page which will be the first page(index page) for our Project -->
 
 <?php
+include("connect.php");
+   session_start();
+	if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form 
+      
+      $myusername = mysqli_real_escape_string($db,$_POST['username']);
+      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+      
+      $sql = "SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'";
+      $result = mysqli_query($db,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $active = $row['active'];
+      
+      $count = mysqli_num_rows($result);
+      
+		
+      if($count == 1) {
+         session_register("myusername");
+         $_SESSION['login_user'] = $myusername;
+         
+         header("location: home.php");
+      }else {
+         $error = "Invalid Login details";
+      }
+   }
 
 
 ?>
@@ -25,7 +50,7 @@
 <div class="register-form">
   <div class="module">
     <h1 id="adL">ADMIN LOGON</h1>
-    <form class="form" action="form.php" method="post" enctype="multipart/form-data" autocomplete="off"> 
+    <form class="form" action="home.php" method="post" enctype="multipart/form-data" autocomplete="off"> 
       User Name:
       <input type="text" name="username" placeholder="Username"> 
       <br><br>
