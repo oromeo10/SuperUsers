@@ -25,8 +25,8 @@ foreach ($sqlArray as $stmt) {
   if (strlen($stmt)>3 && substr(ltrim($stmt),0,2)!='/*') {
     $result = mysqli_query($HRMS, $stmt);
     if (!$result) {
-        echo mysqli_errno($sqlErrorCode);
-      echo  mysqli_error($sqlErrorText);
+        $sqlErrorCode = mysqli_errno($HRMS);
+      $sqlErrorText = mysqli_error($HRMS);
       $sqlStmt = $stmt;
       break;
     }

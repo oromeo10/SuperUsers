@@ -1,4 +1,3 @@
-
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -157,6 +156,23 @@ CREATE TABLE IF NOT EXISTS `hrms`.`training` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+USE `hrms` ;
+
+-- -----------------------------------------------------
+-- Placeholder table for view `hrms`.`allDepartments`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hrms`.`allDepartments` (`D_name` INT, `D_manager` INT, `SID` INT);
+
+-- -----------------------------------------------------
+-- View `hrms`.`allDepartments`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `hrms`.`allDepartments`;
+USE `hrms`;
+CREATE OR REPLACE VIEW `allDepartments` AS
+    SELECT 
+        D_name, D_manager, SID
+    FROM
+        department;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

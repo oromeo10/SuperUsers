@@ -62,7 +62,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrms`.`department` (
   `DID` INT(11) NOT NULL,
-  `D_ name` VARCHAR(15) NOT NULL,
+  `D_name` VARCHAR(15) NOT NULL,
   `D_manager` VARCHAR(15) NOT NULL,
   `SID` INT(11) NOT NULL,
   PRIMARY KEY (`DID`, `SID`))

@@ -4,7 +4,7 @@
 
 INSERT INTO `hrms`.`department`
 (`DID`,
-`D_ name`,
+`D_name`,
 `D_manager`,
 `SID`)
 VALUES
@@ -14,7 +14,7 @@ VALUES
 
 INSERT INTO `hrms`.`department`
 (`DID`,
-`D_ name`,
+`D_name`,
 `D_manager`,
 `SID`)
 VALUES
@@ -24,7 +24,7 @@ VALUES
 
 INSERT INTO `hrms`.`department`
 (`DID`,
-`D_ name`,
+`D_name`,
 `D_manager`,
 `SID`)
 VALUES
