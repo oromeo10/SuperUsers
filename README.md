@@ -1,8 +1,4 @@
 # SuperUsers
-Link to possible help on connecting database to php on xampp:
-
-https://interconnectit.com/blog/2010/01/14/using-mysql-workbench-with-xampp/
-
 GroupMe messaging Link:
 https://groupme.com/en-US/ 
 
