@@ -8,9 +8,7 @@
 <html>
 <body>
 
-<?php
 
-?>
 
 <link rel="stylesheet" href="style.css" type="text/css">
 
@@ -26,6 +24,11 @@
 <div class="register-form">
   <div class="module">
     <h1>Departments</h1>
+	
+	<?php
+	
+
+?>
  
   </div>
 

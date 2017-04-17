@@ -1,7 +1,7 @@
 <?php
 
 //Your password on your local machine goes in $pass //	
-$pass = '';
+$pass = 'Jennif3r';
   define('DB_SERVER', 'localhost:3306');
    define('DB_USERNAME', 'root' );
     define('DB_PASSWORD', $pass );
