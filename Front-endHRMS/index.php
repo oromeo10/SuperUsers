@@ -1,5 +1,4 @@
 <!-- this is the login page which will be the first page(index page) for our Project -->
-
 <?php
 include("connect.php");
    session_start();
@@ -30,14 +29,18 @@ include("connect.php");
 
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <body>
 
+
+
+
 <?php
 
-?>
 
+?>
 <link rel="stylesheet" href="register.css" type="text/css">
 <br> 
 <img id= "logo" src="logo.png" width="240" height="100" title="Logo of a company" alt="Logo of a company" />
