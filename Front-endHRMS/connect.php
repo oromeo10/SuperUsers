@@ -13,10 +13,6 @@ if ($HRMS->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }else{ 
 echo 'Connected successfully <br>'; 
-}
-
-//create tables for database by reading the below file as long as it is located in the same directory as the .php files used//
-
 $sqlErrorCode = 0;
 $sqlFileToExecute = 'HRdiagramtoscriptforhrms.sql';
 $f = fopen($sqlFileToExecute,"r+");
@@ -41,5 +37,10 @@ if ($sqlErrorCode == 0) {
   echo "Error text: $sqlErrorText<br/>";
   echo "Statement:<br/> $sqlStmt<br/>";
 }
+}
+
+//create tables for database by reading the below file as long as it is located in the same directory as the .php files used//
+
+
 
 ?> 
