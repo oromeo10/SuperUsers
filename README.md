@@ -20,11 +20,11 @@ https://docs.google.com/drawings/d/1_YpNiWyHLYcBRUgULG6Cn4ce0NQaIu2UbLZLitycam4/
 Presentation:
 * Each team should present their Project Problem
 
-* Present Entities and ER Diagram to the class. All the team members should explain their role in the project. 
+* Present ER Diagram to the class. All the team members should explain their role in the project. 
 
-* Presentation should be uploaded to the Team folder by Project Lead with new folder called ER Presentaton. 
+* Demonstrate insert, update, and delete operations in application
 
-* Time limit on the presentation : 5 mins; 2 minutes Q&A; 10% wtg. for the overall grade
+* Time limit: TBA
 
 
 
