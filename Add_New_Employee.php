@@ -114,8 +114,8 @@ Job Type:
   </select>
 <!-- submit emplyee information -->
 <br><br>
-    <input type="submit" name="AddEmployee" value="Add Employee">
-
+    <input type="button" name="AddEmployee" value="Add Employee" onclick="window.location.href='Home.php'">
+   
 <br><br>
 </form>
 
