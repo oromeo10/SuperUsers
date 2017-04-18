@@ -141,6 +141,16 @@ input[type=text] {
     border-radius: 4px;
     font-size:15px; 
 }
+input[type=password] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #6045BC;
+    background-color: lightblue;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size:15px; 
+}
 select{
     padding: 12px 20px;
     margin: 8px 0;
@@ -208,7 +218,19 @@ input[type=text], select {
     box-sizing: border-box;
 
 }
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 
+}
+input[type=password]:hover {
+    background-color: #45a049;
+}
 input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
