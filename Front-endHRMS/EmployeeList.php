@@ -1,12 +1,10 @@
 <?php
-	//making connection
-	mysql_connect('localhost', 'root', 'Jennif3r');
-	//selecting database: enter database name
-	mysql_select_db('dbms');
+include("connect.php");
+	
 	
 	//table
-	$sql="SELECT * FROM employee"
-	$records=mysql_query($sql);
+	$sql="SELECT * FROM hrms.employee";
+	$records=mysqli_query($HRMS, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -57,13 +55,13 @@
 	<br> 
 
 	<?php
-	while($employee=mysql_fetch_assoc($records)){
+	while($employee=mysqli_fetch_assoc($records)){
 		
 		echo "<tr>";
 		
-		echo "<td>".$employee['Fname']."</td>";
+		echo "<td>".$employee['f_name']."</td>";
 		
-		echo "<td>".$employee['MI']."</td>";
+		echo "<td>".$employee['m_initial']."</td>";
 		
 		echo "<td>".$employee['Lname']."</td>";
 		echo "<td>".$employee['Gender']."</td>";

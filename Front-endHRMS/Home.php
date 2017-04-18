@@ -22,10 +22,7 @@ foreach ($sqlArray as $stmt) {
 if ($sqlErrorCode == 0) {
   echo "Script is executed succesfully!";
 } else {
-  echo "An error occured during installation!<br/>";
-  echo "Error code: $sqlErrorCode<br/>";
-  echo "Error text: $sqlErrorText<br/>";
-  echo "Statement:<br/> $sqlStmt<br/>";
+ 
 }
 
 
