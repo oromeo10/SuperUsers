@@ -22,36 +22,36 @@
 <br>
 <form id="input">
   First name:
-  <input type="text" name="firstname" placeholder="First Name"> 
+  <input type="text" name="firstname" placeholder="First Name" value="firstname"> 
   Middle Initial:
-  <input type="text" name="middlename" placeholder="Middle Initial">
+  <input type="text" name="middlename" placeholder="Middle Initial" value="minit">
   Last name:
-  <input type="text" name="lastname" placeholder="Last Name">
+  <input type="text" name="lastname" placeholder="Last Name" value="lastname">
   <br>
   <br>
 
   Gender:
-  <input type="radio" name="gender" value="M" > MALE
-  <input type="radio" name="gender" value="F"> FEMALE
+  <input type="radio" name="gender" value="M" value="male"> MALE
+  <input type="radio" name="gender" value="F" value="female"> FEMALE
 
   <br><br>
   Disability:
-  <input type="radio" name="YesNo" value="Y" > YES
-  <input type="radio" name="YesNo" value="N"> NO
+  <input type="radio" name="YesNo" value="Y" value="yes"> YES
+  <input type="radio" name="YesNo" value="N" value="no"> NO
 
   <br><br>
   SSN:
-  <input type="text" name="ssn" placeholder="000000000">
+  <input type="text" name="ssn" placeholder="000000000" value="ssn">
   Date of Birth:
-  <input type="text" name="DateOfBirth" placeholder="YYYY/MM/DD">
+  <input type="text" name="DateOfBirth" placeholder="YYYY/MM/DD" value="dateofbirth">
   <br> <br>
   Address:
-  <input type="text" name="Street" placeholder="Street">
+  <input type="text" name="Street" placeholder="Street" value="street">
   &emsp; 
-  <input type="text" name="City" placeholder="City">
+  <input type="text" name="City" placeholder="City" value="city">
   &emsp; 
-  <input type="text" name="State" placeholder="State">
-  <input type="text" name="ZipCode" placeholder="Zip Code">
+  <input type="text" name="State" placeholder="State" value="state">
+  <input type="text" name="ZipCode" placeholder="Zip Code" value="zipcode">
   <br><br>
   Ethnicity:
   <select>
@@ -65,14 +65,14 @@
   </select>
 
   Phone Number:
-  <input type="text" name="PhoneNumber" placeholder="0000000000">
+  <input type="text" name="PhoneNumber" placeholder="0000000000" value="phonenumber">
   Emergency Contact:
-  <input type="text" name="EmergencyContact" placeholder="0000000000">
+  <input type="text" name="EmergencyContact" placeholder="0000000000" value="emcontactnumber">
   <br><br>
   Email:
-  <input type="text" name="email" placeholder="example@something.com">
+  <input type="text" name="email" placeholder="example@something.com" value="email">
   Hired date:
-  <input type="text" name="HiredDate" placeholder="YYYY-MM-DD">
+  <input type="text" name="HiredDate" placeholder="YYYY-MM-DD" value="hireddate">
   Position:
   <select>
     <option>Select</option>
@@ -88,7 +88,7 @@
   </select>
   <br><br>
   Supervisor Name:
-  <input type="text" name="SupevisorName" placeholder="First and last">
+  <input type="text" name="SupevisorName" placeholder="First and last" value="supname">
   Department Name:
   <select>
     <option>Select</option>
