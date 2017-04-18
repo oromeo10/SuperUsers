@@ -1,6 +1,10 @@
 <?php 
-
-
+include("connect.php");
+	
+	
+	//table
+	$sql="SELECT * FROM hrms.alldepartments";
+	$records=mysqli_query($HRMS, $sql);
 
 ?>
 
@@ -25,11 +29,38 @@
   <div class="module">
     <h1>Departments</h1>
 	
+	<table width="600" border="1" cellpadding="1" cellspacing="1">
+	<tr>
+	<th>ID</th>
+	<th>Name</th>
+	<th>Actions</th> 
+	</tr>
+	
 	<!-- table listing for departments-->
 	<?php
+	while($deptview=mysqli_fetch_assoc($records)){
+		
+		echo "<tr>";
+		
+		echo "<td>".$deptview['SID']."</td>";
+		
+		echo "<td>".$deptview['D_name']."</td>";
+		
+		echo "<td> Delete-link to be created -  </td>";
+		
+		echo "</tr>";
+		
+	   	
+	}
+
+	?>
+	
+	
+	
+	
 	
 
-?>
+</table>
 	
   </div>
 

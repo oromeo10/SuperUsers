@@ -45,6 +45,46 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `hrms`.`employee`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
+  `EID` INT(11) NOT NULL,
+  `f_name` VARCHAR(15) NOT NULL,
+  `m_initial` VARCHAR(1) NULL DEFAULT NULL,
+  `l_name` VARCHAR(15) NOT NULL,
+  `E_ssn` CHAR(9) NOT NULL,
+  `E_phone` CHAR(10) NOT NULL,
+  `E_city` VARCHAR(15) NOT NULL,
+  `E_street` VARCHAR(40) NOT NULL,
+  `E_state` VARCHAR(5) NOT NULL,
+  `E_email` VARCHAR(40) NOT NULL,
+  `Date_of_hire` DATE NOT NULL,
+  `D_ID` INT NOT NULL,
+  `S_ID` INT NOT NULL,
+  `dbirth` DATE NOT NULL,
+  `gender` CHAR(1) NOT NULL,
+  `dep_contact` CHAR(15) NOT NULL,
+  `disability` CHAR(1) NULL,
+  `ethnicity` VARCHAR(45) NULL,
+  PRIMARY KEY (`EID`, `E_ssn`),
+  UNIQUE INDEX `EID_UNIQUE` (`EID` ASC),
+  INDEX `D_ID_idx` (`D_ID` ASC),
+  INDEX `S_ID_idx` (`S_ID` ASC),
+  CONSTRAINT `D_ID`
+    FOREIGN KEY (`D_ID`)
+    REFERENCES `hrms`.`department` (`DID`)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+  CONSTRAINT `S_ID`
+    FOREIGN KEY (`S_ID`)
+    REFERENCES `hrms`.`department` (`SID`)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `hrms`.`store`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrms`.`store` (
@@ -87,63 +127,6 @@ CREATE TABLE IF NOT EXISTS `hrms`.`department` (
     FOREIGN KEY (`D_mgrID`)
     REFERENCES `hrms`.`employee` (`EID`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `hrms`.`employee`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
-  `EID` INT(11) NOT NULL,
-  `f_name` VARCHAR(15) NOT NULL,
-  `m_initial` VARCHAR(1) NULL DEFAULT NULL,
-  `l_name` VARCHAR(15) NOT NULL,
-  `E_ssn` CHAR(9) NOT NULL,
-  `E_phone` CHAR(15) NOT NULL,
-  `E_city` VARCHAR(15) NOT NULL,
-  `E_street` VARCHAR(40) NOT NULL,
-  `E_state` VARCHAR(5) NOT NULL,
-  `E_email` VARCHAR(40) NOT NULL,
-  `Date_of_hire` DATE NOT NULL,
-  `l_of_employment` INT(11) NOT NULL,
-  `D_ID` INT NOT NULL,
-  `S_ID` INT NOT NULL,
-  `dbirth` DATE NOT NULL,
-  `gender` VARCHAR(45) NOT NULL,
-  `dep_contact` CHAR(15) NOT NULL,
-  PRIMARY KEY (`EID`, `E_ssn`),
-  UNIQUE INDEX `EID_UNIQUE` (`EID` ASC),
-  INDEX `D_ID_idx` (`D_ID` ASC),
-  INDEX `S_ID_idx` (`S_ID` ASC),
-  CONSTRAINT `D_ID`
-    FOREIGN KEY (`D_ID`)
-    REFERENCES `hrms`.`department` (`DID`)
-    ON DELETE NO ACTION
-    ON UPDATE CASCADE,
-  CONSTRAINT `S_ID`
-    FOREIGN KEY (`S_ID`)
-    REFERENCES `hrms`.`department` (`SID`)
-    ON DELETE NO ACTION
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `hrms`.`demographics`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`demographics` (
-  `EID` INT(11) NOT NULL,
-  `Ethnicity` VARCHAR(15) NOT NULL,
-  `Gender` CHAR(1) NOT NULL,
-  `Disability` TINYINT(1) NOT NULL,
-  PRIMARY KEY (`EID`),
-  CONSTRAINT `emp_demographic`
-    FOREIGN KEY (`EID`)
-    REFERENCES `hrms`.`employee` (`EID`)
-    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;

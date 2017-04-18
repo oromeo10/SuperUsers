@@ -63,7 +63,7 @@ include("connect.php");
 		
 		echo "<td>".$employee['m_initial']."</td>";
 		
-		echo "<td>".$employee['Lname']."</td>";
+		echo "<td>".$employee['l_name']."</td>";
 		echo "<td>".$employee['Gender']."</td>";
 		
 		echo "<td>".$employee['SSN']."</td>";
