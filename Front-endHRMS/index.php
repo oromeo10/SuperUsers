@@ -1,6 +1,28 @@
 <!-- this is the login page which will be the first page(index page) for our Project -->
 
 <?php
+include("connect.php");
+$sqlErrorCode = 0;
+$sqlFileToExecute = 'HRdiagramtoscriptforhrms.sql';
+$f = fopen($sqlFileToExecute,"r+");
+$sqlFile = fread($f, filesize($sqlFileToExecute));
+$sqlArray = explode(';',$sqlFile);
+foreach ($sqlArray as $stmt) {
+  if (strlen($stmt)>3 && substr(ltrim($stmt),0,2)!='/*') {
+    $result = mysqli_query($HRMS, $stmt);
+    if (!$result) {
+        $sqlErrorCode = mysqli_errno($HRMS);
+      $sqlErrorText = mysqli_error($HRMS);
+      $sqlStmt = $stmt;
+      break;
+    }
+  }
+}
+if ($sqlErrorCode == 0) {
+  echo "Script is executed succesfully!";
+} else {
+ 
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +44,7 @@
 <div class="register-form">
   <div class="module">
     <h1 id="adL">ADMIN LOGIN</h1>
-    <form class="form" action="form.php" method="post" enctype="multipart/form-data" autocomplete="off"> 
+    <form class="form" action="Home.php" method="post" enctype="multipart/form-data" autocomplete="off"> 
       User Name:
       <input type="text" name="username" placeholder="Username"> 
       <br><br>
