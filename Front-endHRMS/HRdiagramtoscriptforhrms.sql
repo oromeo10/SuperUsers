@@ -45,14 +45,49 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `hrms`.`demographics`
+-- Table `hrms`.`store`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`demographics` (
-  `EID` INT(11) NOT NULL,
-  `Ethnicity` VARCHAR(15) NOT NULL,
-  `Gender` CHAR(1) NOT NULL,
-  `Disability` TINYINT(1) NOT NULL,
-  PRIMARY KEY (`EID`))
+CREATE TABLE IF NOT EXISTS `hrms`.`store` (
+  `SID` INT NOT NULL,
+  `S_name` VARCHAR(15) NOT NULL,
+  `S_phone` CHAR(10) NOT NULL,
+  `S_mgrID` INT NULL,
+  `S_city` VARCHAR(45) NOT NULL,
+  `S_state` VARCHAR(45) NOT NULL,
+  `S_zip` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`SID`),
+  INDEX `mgrID_idx` (`S_mgrID` ASC),
+  CONSTRAINT `mgrID`
+    FOREIGN KEY (`S_mgrID`)
+    REFERENCES `hrms`.`employee` (`EID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `hrms`.`department`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hrms`.`department` (
+  `DID` INT NOT NULL,
+  `D_name` VARCHAR(15) NOT NULL,
+  `D_mgrID` INT(11) NULL,
+  `SID` INT NOT NULL,
+  PRIMARY KEY (`DID`, `SID`),
+  INDEX `SID_idx` (`SID` ASC),
+  INDEX `mgrID_idx` (`D_mgrID` ASC),
+  UNIQUE INDEX `DID_UNIQUE` (`DID` ASC),
+  CONSTRAINT `SID`
+    FOREIGN KEY (`SID`)
+    REFERENCES `hrms`.`store` (`SID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `mgr_ID`
+    FOREIGN KEY (`D_mgrID`)
+    REFERENCES `hrms`.`employee` (`EID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -97,48 +132,18 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `hrms`.`store`
+-- Table `hrms`.`demographics`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`store` (
-  `SID` INT NOT NULL,
-  `S_name` VARCHAR(15) NOT NULL,
-  `S_phone` CHAR(10) NOT NULL,
-  `S_mgrID` INT NULL,
-  `S_city` VARCHAR(45) NOT NULL,
-  `S_state` VARCHAR(45) NOT NULL,
-  `S_zip` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`SID`),
-  INDEX `mgrID_idx` (`S_mgrID` ASC),
-  CONSTRAINT `mgrID`
-    FOREIGN KEY (`S_mgrID`)
+CREATE TABLE IF NOT EXISTS `hrms`.`demographics` (
+  `EID` INT(11) NOT NULL,
+  `Ethnicity` VARCHAR(15) NOT NULL,
+  `Gender` CHAR(1) NOT NULL,
+  `Disability` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`EID`),
+  CONSTRAINT `emp_demographic`
+    FOREIGN KEY (`EID`)
     REFERENCES `hrms`.`employee` (`EID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `hrms`.`department`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`department` (
-  `DID` INT NOT NULL,
-  `D_name` VARCHAR(15) NOT NULL,
-  `D_mgrID` INT(11) NULL,
-  `SID` INT NOT NULL,
-  PRIMARY KEY (`DID`, `SID`),
-  INDEX `SID_idx` (`SID` ASC),
-  INDEX `mgrID_idx` (`D_mgrID` ASC),
-  UNIQUE INDEX `DID_UNIQUE` (`DID` ASC),
-  CONSTRAINT `SID`
-    FOREIGN KEY (`SID`)
-    REFERENCES `hrms`.`store` (`SID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `mgr_ID`
-    FOREIGN KEY (`D_mgrID`)
-    REFERENCES `hrms`.`employee` (`EID`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
