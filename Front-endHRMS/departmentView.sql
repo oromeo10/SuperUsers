@@ -1,5 +1,5 @@
-CREATE VIEW `new_view` AS
-Select a.D_name,b.SID
-from hrms.department as a
-inner join hrms.store as b
-on a.SID=b.SID;
+CREATE OR REPLACE VIEW `departmentView` AS
+    SELECT a.D_name,b.SID
+FROM hrms.department AS a
+	INNER JOIN hrms.store AS b
+	ON a.SID=b.SID;

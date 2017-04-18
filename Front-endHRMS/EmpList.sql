@@ -1,6 +1,6 @@
-CREATE VIEW `new_view` AS
+CREATE OR REPLACE VIEW `EmpList` AS
 
-Select a.*,b.POS_name,b.Job_Type
-from hrms.employee as a
-inner join hrms.position as b
-on a.EID=b.EID;
+SELECT a.*,b.POS_name,b.Job_Type
+FROM hrms.employee AS a
+	INNER JOIN hrms.position AS b
+ON a.EID=b.EID;

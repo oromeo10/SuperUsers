@@ -48,7 +48,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `hrms`.`employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
-  `EID` INT(11) NOT NULL AUTO_INCREMENT,
+  `EID` INT NOT NULL AUTO_INCREMENT,
   `f_name` VARCHAR(15) NOT NULL,
   `m_initial` VARCHAR(1) NULL DEFAULT NULL,
   `l_name` VARCHAR(15) NOT NULL,
@@ -89,7 +89,6 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrms`.`store` (
   `SID` INT NOT NULL,
-  `S_name` VARCHAR(15) NOT NULL,
   `S_phone` CHAR(10) NOT NULL,
   `S_mgrID` INT NULL,
   `S_city` VARCHAR(45) NOT NULL,
@@ -118,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `hrms`.`department` (
   INDEX `SID_idx` (`SID` ASC),
   INDEX `mgrID_idx` (`D_mgrID` ASC),
   UNIQUE INDEX `DID_UNIQUE` (`DID` ASC),
+  UNIQUE INDEX `D_mgrID_UNIQUE` (`D_mgrID` ASC),
   CONSTRAINT `SID`
     FOREIGN KEY (`SID`)
     REFERENCES `hrms`.`store` (`SID`)
@@ -138,14 +138,14 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `hrms`.`position` (
   `POSID` INT(11) NOT NULL,
   `POS_name` VARCHAR(15) NOT NULL,
-  `POS_type` VARCHAR(15) NOT NULL,
   `Job_Type` VARCHAR(45) NOT NULL,
   `Hourly` INT(11) NULL DEFAULT NULL,
   `Salary` INT(11) NULL DEFAULT NULL,
-  `Manager` VARCHAR(15) NOT NULL,
-  `EID` INT(11) NULL,
+  `Manager` VARCHAR(15) NULL,
+  `EID` INT NULL,
   PRIMARY KEY (`POSID`),
   INDEX `hiredPosition_idx` (`EID` ASC),
+  UNIQUE INDEX `EID_UNIQUE` (`EID` ASC),
   CONSTRAINT `hiredPosition`
     FOREIGN KEY (`EID`)
     REFERENCES `hrms`.`employee` (`EID`)
@@ -187,22 +187,37 @@ ENGINE = InnoDB;
 USE `hrms` ;
 
 -- -----------------------------------------------------
--- Placeholder table for view `hrms`.`allDepartments`
+-- Placeholder table for view `hrms`.`departmentView`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`allDepartments` (`D_name` INT, `S_name` INT, `SID` INT);
+CREATE TABLE IF NOT EXISTS `hrms`.`departmentView` (`D_name` INT, `SID` INT);
 
 -- -----------------------------------------------------
--- View `hrms`.`allDepartments`
+-- Placeholder table for view `hrms`.`EmpList`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `hrms`.`allDepartments`;
+CREATE TABLE IF NOT EXISTS `hrms`.`EmpList` (`EID` INT, `f_name` INT, `m_initial` INT, `l_name` INT, `E_ssn` INT, `E_phone` INT, `E_city` INT, `E_street` INT, `E_state` INT, `E_email` INT, `Date_of_hire` INT, `D_ID` INT, `S_ID` INT, `dbirth` INT, `gender` INT, `dep_contact` INT, `disability` INT, `ethnicity` INT, `POS_name` INT, `Job_Type` INT);
+
+-- -----------------------------------------------------
+-- View `hrms`.`departmentView`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `hrms`.`departmentView`;
 USE `hrms`;
-CREATE OR REPLACE VIEW `allDepartments` AS
-    SELECT 
-        a.D_name, b.S_name, b.SID
-    FROM
-        hrms.department AS a
-        INNER JOIN hrms.store AS b
-			ON b.SID = a.SID ;
+CREATE OR REPLACE VIEW `departmentView` AS
+    SELECT a.D_name,b.SID
+FROM hrms.department AS a
+	INNER JOIN hrms.store AS b
+	ON a.SID=b.SID;
+
+-- -----------------------------------------------------
+-- View `hrms`.`EmpList`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `hrms`.`EmpList`;
+USE `hrms`;
+CREATE OR REPLACE VIEW `EmpList` AS
+
+SELECT a.*,b.POS_name,b.Job_Type
+FROM hrms.employee AS a
+	INNER JOIN hrms.position AS b
+ON a.EID=b.EID;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
