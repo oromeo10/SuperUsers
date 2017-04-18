@@ -25,11 +25,12 @@
   <div class="module">
     <h1>Departments</h1>
 	
+	<!-- table listing for departments-->
 	<?php
 	
 
 ?>
- 
+	
   </div>
 
 <!-- end body  -->

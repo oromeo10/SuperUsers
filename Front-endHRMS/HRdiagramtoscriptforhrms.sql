@@ -58,33 +58,6 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `hrms`.`department`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`department` (
-  `DID` INT(11) NOT NULL,
-  `D_name` VARCHAR(15) NOT NULL,
-  `D_manager` VARCHAR(15) NOT NULL,
-  `SID` INT(11) NOT NULL,
-  PRIMARY KEY (`DID`, `SID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `hrms`.`store`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`store` (
-  `SID` INT(11) NOT NULL,
-  `S_name` VARCHAR(15) NOT NULL,
-  `S_phone` INT(10) UNSIGNED NOT NULL,
-  `S_manager` VARCHAR(15) NOT NULL,
-  `S_address` VARCHAR(15) NOT NULL,
-  PRIMARY KEY (`SID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `hrms`.`employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
@@ -92,18 +65,19 @@ CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
   `f_name` VARCHAR(15) NOT NULL,
   `m_initial` VARCHAR(1) NULL DEFAULT NULL,
   `l_name` VARCHAR(15) NOT NULL,
-  `e_name` VARCHAR(31) NOT NULL,
   `E_ssn` CHAR(9) NOT NULL,
-  `E_phone` INT(11) NOT NULL,
+  `E_phone` CHAR(15) NOT NULL,
   `E_city` VARCHAR(15) NOT NULL,
-  `E_street` VARCHAR(20) NOT NULL,
+  `E_street` VARCHAR(40) NOT NULL,
   `E_state` VARCHAR(5) NOT NULL,
-  `E_address` VARCHAR(43) NOT NULL,
-  `E_email` VARCHAR(20) NOT NULL,
+  `E_email` VARCHAR(40) NOT NULL,
   `Date_of_hire` DATE NOT NULL,
   `l_of_employment` INT(11) NOT NULL,
-  `D_ID` INT(11) NOT NULL,
-  `S_ID` INT(11) NOT NULL,
+  `D_ID` INT NOT NULL,
+  `S_ID` INT NOT NULL,
+  `dbirth` DATE NOT NULL,
+  `gender` VARCHAR(45) NOT NULL,
+  `dep_contact` CHAR(15) NOT NULL,
   PRIMARY KEY (`EID`, `E_ssn`),
   UNIQUE INDEX `EID_UNIQUE` (`EID` ASC),
   INDEX `D_ID_idx` (`D_ID` ASC),
@@ -115,7 +89,55 @@ CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
     ON UPDATE NO ACTION,
   CONSTRAINT `S_ID`
     FOREIGN KEY (`S_ID`)
+    REFERENCES `hrms`.`department` (`SID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `hrms`.`store`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hrms`.`store` (
+  `SID` INT NOT NULL,
+  `S_name` VARCHAR(15) NOT NULL,
+  `S_phone` CHAR(10) NOT NULL,
+  `S_mgrID` INT NULL,
+  `S_city` VARCHAR(45) NOT NULL,
+  `S_state` VARCHAR(45) NOT NULL,
+  `S_zip` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`SID`),
+  INDEX `mgrID_idx` (`S_mgrID` ASC),
+  CONSTRAINT `mgrID`
+    FOREIGN KEY (`S_mgrID`)
+    REFERENCES `hrms`.`employee` (`EID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `hrms`.`department`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hrms`.`department` (
+  `DID` INT NOT NULL,
+  `D_name` VARCHAR(15) NOT NULL,
+  `D_mgrID` INT(11) NULL,
+  `SID` INT NOT NULL,
+  PRIMARY KEY (`DID`, `SID`),
+  INDEX `SID_idx` (`SID` ASC),
+  INDEX `mgrID_idx` (`D_mgrID` ASC),
+  UNIQUE INDEX `DID_UNIQUE` (`DID` ASC),
+  CONSTRAINT `SID`
+    FOREIGN KEY (`SID`)
     REFERENCES `hrms`.`store` (`SID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `mgr_ID`
+    FOREIGN KEY (`D_mgrID`)
+    REFERENCES `hrms`.`employee` (`EID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -133,8 +155,14 @@ CREATE TABLE IF NOT EXISTS `hrms`.`position` (
   `Hourly` INT(11) NULL DEFAULT NULL,
   `Salary` INT(11) NULL DEFAULT NULL,
   `Manager` VARCHAR(15) NOT NULL,
-  `EID` INT(11) NOT NULL,
-  PRIMARY KEY (`POSID`))
+  `EID` INT(11) NULL,
+  PRIMARY KEY (`POSID`),
+  INDEX `hiredPosition_idx` (`EID` ASC),
+  CONSTRAINT `hiredPosition`
+    FOREIGN KEY (`EID`)
+    REFERENCES `hrms`.`employee` (`EID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -161,7 +189,7 @@ USE `hrms` ;
 -- -----------------------------------------------------
 -- Placeholder table for view `hrms`.`allDepartments`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hrms`.`allDepartments` (`D_name` INT, `D_manager` INT, `SID` INT);
+CREATE TABLE IF NOT EXISTS `hrms`.`allDepartments` (`D_name` INT, `S_name` INT, `SID` INT);
 
 -- -----------------------------------------------------
 -- View `hrms`.`allDepartments`
@@ -170,9 +198,11 @@ DROP TABLE IF EXISTS `hrms`.`allDepartments`;
 USE `hrms`;
 CREATE OR REPLACE VIEW `allDepartments` AS
     SELECT 
-        D_name, D_manager, SID
+        a.D_name, b.S_name, b.SID
     FROM
-        department;
+        hrms.department AS a
+        INNER JOIN hrms.store AS b
+			ON b.SID = a.SID ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

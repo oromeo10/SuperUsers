@@ -1,5 +1,7 @@
 CREATE OR REPLACE VIEW `allDepartments` AS
     SELECT 
-        D_name, D_manager, SID
+        a.D_name, b.S_name, b.SID
     FROM
-        department;
+        hrms.department AS a
+        INNER JOIN hrms.store AS b
+			ON b.SID = a.SID ;

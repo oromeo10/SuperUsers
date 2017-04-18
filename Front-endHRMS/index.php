@@ -38,7 +38,31 @@ include("connect.php");
 
 
 <?php
-
+$sqlErrorCode = 0;
+$sqlFileToExecute = 'HRdiagramtoscriptforhrms.sql';
+$f = fopen($sqlFileToExecute,"r+");
+$sqlFile = fread($f, filesize($sqlFileToExecute));
+$sqlArray = explode(';',$sqlFile);
+foreach ($sqlArray as $stmt) {
+  if (strlen($stmt)>3 && substr(ltrim($stmt),0,2)!='/*') {
+    $result = mysqli_query($HRMS, $stmt);
+    if (!$result) {
+      $sqlErrorCode = mysqli_errno($HRMS);
+      $sqlErrorText = mysqli_error($HRMS);
+      $sqlStmt = $stmt;
+      break;
+    }
+  }
+}
+if ($sqlErrorCode == 0) {
+  echo "Script is executed succesfully!";
+  
+} else {
+  echo "An error occured during installation!<br/>";
+  echo "Error code: $sqlErrorCode<br/>";
+  echo "Error text: $sqlErrorText<br/>";
+  echo "Statement:<br/> $sqlStmt<br/>";
+}
 
 ?>
 <link rel="stylesheet" href="register.css" type="text/css">
