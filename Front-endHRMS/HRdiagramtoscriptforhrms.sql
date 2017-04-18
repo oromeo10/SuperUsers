@@ -48,7 +48,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `hrms`.`employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
-  `EID` INT(11) NOT NULL,
+  `EID` INT(11) NOT NULL AUTO_INCREMENT,
   `f_name` VARCHAR(15) NOT NULL,
   `m_initial` VARCHAR(1) NULL DEFAULT NULL,
   `l_name` VARCHAR(15) NOT NULL,
@@ -59,8 +59,8 @@ CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
   `E_state` VARCHAR(5) NOT NULL,
   `E_email` VARCHAR(40) NOT NULL,
   `Date_of_hire` DATE NOT NULL,
-  `D_ID` INT NOT NULL,
-  `S_ID` INT NOT NULL,
+  `D_ID` INT NULL,
+  `S_ID` INT NULL,
   `dbirth` DATE NOT NULL,
   `gender` CHAR(1) NOT NULL,
   `dep_contact` CHAR(15) NOT NULL,
@@ -74,12 +74,12 @@ CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
     FOREIGN KEY (`D_ID`)
     REFERENCES `hrms`.`department` (`DID`)
     ON DELETE NO ACTION
-    ON UPDATE CASCADE,
+    ON UPDATE NO ACTION,
   CONSTRAINT `S_ID`
     FOREIGN KEY (`S_ID`)
     REFERENCES `hrms`.`department` (`SID`)
     ON DELETE NO ACTION
-    ON UPDATE CASCADE)
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
