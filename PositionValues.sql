@@ -1,0 +1,12 @@
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(1, "Cashier","Part-time", 9, null, "Ronaldo",1);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(2, "Stocker","Part-time", 9, null, "Messi",1);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(3, "Custodian","Part-time", 9, null, "Hazard",null);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(4, "Manager","Full-time", null, 45000, "Pogba",1);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(5, "Asst Manager","Part-time", 19, null, "Griezemann",null);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(6, "Officer","Part-time", 9, null, "Benzema",1); 
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(7, "Procurement","Full-time", null, 39000, "Kante",1);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(8, "Butcher","Part-time", 9, null, "Mourinho",1);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(9, "Publicist","Full-time", null, 36000, "Conte",null);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(10, "Marketer","Full-time", null, 39000, "Klopp",1);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(11, "Arborist","Part-time", 15, null, "Martino",1);
+Insert INTO hrms.position(POSID,POS_name,Job_Type,Hourly,Salary,Manager,EID) values(12, "Electrician","Full Time", null, 42000, "Matuidi",null);
