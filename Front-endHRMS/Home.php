@@ -3,7 +3,7 @@
 include("connect.php");
 //create tables for database by reading the below file as long as it is located in the same directory as the .php files used//
 
-$sqlErrorCode = 0;
+/*$sqlErrorCode = 0;
 $sqlFileToExecute = 'HRMSpopulator.sql';
 $f = fopen($sqlFileToExecute,"r+");
 $sqlFile = fread($f, filesize($sqlFileToExecute));
@@ -24,7 +24,7 @@ if ($sqlErrorCode == 0) {
 } else {
  
 }
-
+*/
 
 
 

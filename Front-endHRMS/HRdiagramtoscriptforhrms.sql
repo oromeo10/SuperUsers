@@ -172,6 +172,18 @@ CREATE TABLE IF NOT EXISTS `hrms`.`training` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+
+-- -----------------------------------------------------
+-- Table `hrms`.`register`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hrms`.`register` (
+  `u_name` VARCHAR(40) NOT NULL,
+  `s_id` INT NOT NULL,
+  `email` VARCHAR(40) NOT NULL,
+  `u_pass` VARCHAR(40) NOT NULL,
+  PRIMARY KEY (`s_id`))
+ENGINE = InnoDB;
+
 USE `hrms` ;
 
 -- -----------------------------------------------------
