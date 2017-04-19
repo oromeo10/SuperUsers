@@ -1,4 +1,8 @@
 # SuperUsers
+
+FINAL PRESENTATION LINK:
+https://docs.google.com/presentation/d/1hrh_p4V8uxWsO872tV7499BhSCKGJn4IAhr9duXzJpw/edit?usp=sharing
+
 GroupMe messaging Link:
 https://groupme.com/en-US/ 
 
