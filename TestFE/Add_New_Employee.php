@@ -87,8 +87,7 @@
   
   </select>
   <br><br>
-  Supervisor Name:
-  <input type="text" name="SupevisorName" placeholder="First and last">
+  
   Department Name:
   <select>
     <option>Select</option>
@@ -105,13 +104,7 @@
     <option>Marketing</option>
     <option>Public Relations</option>
   </select>
-Job Type:
-  <select>
-    <option>Select</option>
-    <option>Part Time</option>
-    <option>Full Time</option>
-    <option>Allowed Overtime</option>
-  </select>
+
 <!-- submit emplyee information -->
 <br><br>
     <input type="submit" name="AddEmployee" value="Add Employee">

@@ -59,13 +59,13 @@ CREATE TABLE IF NOT EXISTS `hrms`.`employee` (
   `E_state` VARCHAR(5) NOT NULL,
   `E_email` VARCHAR(40) NOT NULL,
   `Date_of_hire` DATE NOT NULL,
-  `D_ID` INT NULL,
-  `S_ID` INT NULL,
+  `D_ID` INT NOT NULL,
+  `S_ID` INT NOT NULL,
   `dbirth` DATE NOT NULL,
   `gender` CHAR(1) NOT NULL,
   `dep_contact` CHAR(15) NOT NULL,
-  `disability` CHAR(1) NULL,
-  `ethnicity` VARCHAR(45) NULL,
+  `disability` CHAR(1) NOT NULL,
+  `ethnicity` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`EID`, `E_ssn`),
   UNIQUE INDEX `EID_UNIQUE` (`EID` ASC),
   INDEX `D_ID_idx` (`D_ID` ASC),
@@ -109,7 +109,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `hrms`.`department`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrms`.`department` (
-  `DID` INT NOT NULL,
+  `DID` INT NOT NULL AUTO_INCREMENT,
   `D_name` VARCHAR(15) NOT NULL,
   `D_mgrID` INT(11) NULL,
   `SID` INT NOT NULL,
@@ -136,12 +136,11 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `hrms`.`position`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hrms`.`position` (
-  `POSID` INT(11) NOT NULL,
+  `POSID` INT(11) NOT NULL AUTO_INCREMENT,
   `POS_name` VARCHAR(30) NOT NULL,
   `Job_Type` VARCHAR(45) NOT NULL,
-  `Hourly` INT(11) NULL DEFAULT NULL,
-  `Salary` INT(11) NULL DEFAULT NULL,
-  `Manager` VARCHAR(15) NULL,
+  `Hourly` DECIMAL(11,2) NULL DEFAULT NULL,
+  `Salary` DECIMAL(11,2) NULL DEFAULT NULL,
   `EID` INT NULL,
   `Dep_ID` INT NOT NULL,
   PRIMARY KEY (`POSID`, `Dep_ID`),
@@ -151,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `hrms`.`position` (
   CONSTRAINT `hiredPosition`
     FOREIGN KEY (`EID`)
     REFERENCES `hrms`.`employee` (`EID`)
-    ON DELETE NO ACTION
+    ON DELETE SET NULL
     ON UPDATE NO ACTION,
   CONSTRAINT `inDept`
     FOREIGN KEY (`Dep_ID`)
@@ -232,7 +231,6 @@ INSERT INTO `hrms`.`register`
 `email`,
 `u_pass`)
 VALUES ('root', 1, 'root@hr.com','root');
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -3,7 +3,7 @@ include("connect.php");
 	
 	
 	//table
-	$sql="SELECT * FROM hrms.";
+	$sql="SELECT * FROM hrms.departmentView";
 	$records=mysqli_query($HRMS, $sql);
 
 ?>
