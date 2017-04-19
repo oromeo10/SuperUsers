@@ -1,0 +1,12 @@
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(1,"Customer Srvc",null,1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(2,"Finance", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(3, "Pharmacy", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(4, "Bakery", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(5, "Meat", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(6, "Seafood", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(7, "HR", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(8, "IT", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(9, "Accounting", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(10, "Security", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(11, "Marketing", null, 1);
+Insert INTO hrms.department(DID,D_name,D_mgrID,SID) values(12, "Pub.Relations", null, 1);

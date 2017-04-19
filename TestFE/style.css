@@ -1,0 +1,256 @@
+#logo{
+    margin-left: 40%;
+}
+
+/*style linkButton_EL (this button is for employee list) */
+.linkButton_EL {
+     background-color: #COLOR;
+     border: 0;
+     color: #COLOR;
+     padding: 10px 70px; 
+     font-size:30px; 
+
+}
+
+.linkButton_EL:hover {
+     background: #COLOR;
+     color: #COLOR;
+     text-decoration: none;  
+}
+
+.linkButton_EL:hover, .linkButton_EL:active {
+    background-color: #2c8e6d;
+}
+/*ends here */
+
+/*style linkButton_NE (this button is for "add new employee") */
+.linkButton_NE {
+     background-color: #COLOR;
+     border: 0;
+     color: #COLOR;
+     padding: 10px 20px; 
+     font-size:30px; 
+
+}
+
+.linkButton_NE:hover {
+     background: #COLOR;
+     color: #COLOR;
+     text-decoration: none;  
+}
+
+.linkButton_NE:hover, .linkButton_EL:active {
+    background-color: #2c8e6d;
+}
+/*ends here */
+
+/*style linkButton_D (this button is for "Department") */
+.linkButton_D {
+     background-color: #COLOR;
+     border: 0;
+     color: #COLOR;
+     padding: 10px 70px; 
+     font-size:30px; 
+
+}
+
+.linkButton_D:hover {
+     background: #COLOR;
+     color: #COLOR;
+     text-decoration: none;  
+}
+
+.linkButton_D:hover, .linkButton_D:active {
+    background-color: #2c8e6d;
+}
+/*ends here */
+
+/*style linkButton_P (this button is for "Payroll") */
+.linkButton_P {
+     background-color: #COLOR;
+     border: 0;
+     color: #COLOR;
+     padding: 10px 114px; 
+     font-size:30px; 
+
+}
+
+.linkButton_P:hover {
+     background: #COLOR;
+     color: #COLOR;
+     text-decoration: none;  
+}
+
+.linkButton_P:hover, .linkButton_P:active {
+    background-color: #2c8e6d;
+}
+/*ends here */
+
+/*style linkButton_L (this button is for "logout") */
+.linkButton_L {
+     background-color: #COLOR;
+     border: 0;
+     color: #COLOR;
+     padding: 10px 114px; 
+     font-size:30px; 
+
+}
+
+.linkButton_L:hover {
+     background: #COLOR;
+     color: #COLOR;
+     text-decoration: none;  
+}
+
+.linkButton_L:hover, .linkButton_L:active {
+    background-color: #2c8e6d;
+}
+/*ends here */
+/*style linkButton_B (this button is for "benefits") */
+.linkButton_B {
+     background-color: #COLOR;
+     border: 0;
+     color: #COLOR;
+     padding: 10px 102px; 
+     font-size:30px; 
+
+}
+
+.linkButton_B:hover {
+     background: #COLOR;
+     color: #COLOR;
+     text-decoration: none;  
+}
+
+.linkButton_B:hover, .linkButton_L:active {
+    background-color: #2c8e6d;
+}
+/*ends here */
+
+.body-content{
+text-align: center;
+}
+input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #6045BC;
+    background-color: lightblue;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size:15px; 
+}
+input[type=password] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #6045BC;
+    background-color: lightblue;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size:15px; 
+}
+select{
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #6045BC;
+    background-color: lightblue;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size:15px; 
+}
+placeholder{ 
+
+ }
+
+input[type=text]:focus {
+    background-color: #3CBC8D;
+}
+
+.main{
+    text-align: center;
+     }
+
+
+
+footer{
+          width: 100%;
+          padding: 60px 0px; 
+          float: right; 
+
+     }
+
+body{
+background-color: #c9cacc; 
+}
+
+.register-form{
+  position:relative;
+  top:20px;
+  height:700px;
+  width:800px;
+  margin-left:auto;
+  margin-right:auto; 
+  background: transparent;
+
+}
+
+.registerButton{
+   background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+input[type=password]:hover {
+    background-color: #45a049;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+.adL{
+     margin-right: 40px; 
+  }
+.main{
+    text-align: center;
+    margin-right: 30px;
+    margin-left: 30px; 
+}
