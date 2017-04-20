@@ -27,9 +27,7 @@ if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['sid']
 		$count = mysqli_num_rows($sql);
 		
 		if($count == 1){
-			
 			header("Location: Home.php");
-			//Store of hr user//
 			$load = "INSERT INTO hrms.store(SID, S_phone, S_mgrID, S_city, S_state, S_zip)
 			VALUES('$store', '6259998746', null, 'Atlanta', 'GA', '30333')";
 			
@@ -43,8 +41,7 @@ if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['sid']
 					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
 					}
 			
-			
-			//Front-End Jobs//
+			//front end jobs//
 			$load = "INSERT INTO hrms.department(D_name, SID)
 			VALUES('Front-End', '$store')";
 			
@@ -130,71 +127,8 @@ if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['sid']
 				} else {
 					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
 					}
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Cake Decorator', 'Full-time', 11.00, null, (SELECT DID FROM hrms.department WHERE D_name = 'Bakery'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Clerk', 'Part-time', 9.13, null, (SELECT DID FROM hrms.department WHERE D_name = 'Bakery'))";
-
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}			
 					
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Bakery Assistant', 'Full-time', 10.49, null, (SELECT DID FROM hrms.department WHERE D_name = 'Bakery'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}		
 					
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Manager', 'Full-time', null, 40000, (SELECT DID FROM hrms.department WHERE D_name = 'Bakery'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}		
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Bakery Associate', 'Full-time', null, 19000, (SELECT DID FROM hrms.department WHERE D_name = 'Bakery'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}			
 			//Produce Jobs//		
 			$load = "INSERT INTO hrms.department(D_name, SID)
 			VALUES('Produce', '$store')";
@@ -208,58 +142,6 @@ if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['sid']
 				} else {
 					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
 					}
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Produce Lead', 'Full-time', 12.52, null, (SELECT DID FROM hrms.department WHERE D_name = 'Produce'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Manager', 'Full-time', null, 42487, (SELECT DID FROM hrms.department WHERE D_name = 'Produce'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Clerk', Over-time', 12.13, null, (SELECT DID FROM hrms.department WHERE D_name = 'Produce'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-					
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Bulk clerk', 'Over-time', 10.00, null, (SELECT DID FROM hrms.department WHERE D_name = 'Produce'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-
 			
 			//Meat Jobs//
 			$load = "INSERT INTO hrms.department(D_name, SID)
@@ -275,71 +157,8 @@ if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['sid']
 					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
 					}
 			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Cutter', 'Full-time', null, 28000, (SELECT DID FROM hrms.department WHERE D_name = 'Meat'))";
-			
-			
-			
-			
 
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Clerk', 'Part-time', null, 18800, (SELECT DID FROM hrms.department WHERE D_name = 'Meat'))";
-			
-			
-			
-			
 
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-					
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Assistant Manager', 'Over-time', null, 32370, (SELECT DID FROM hrms.department WHERE D_name = 'Meat'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}		
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Associate', 'Full-time', 9.61, null, (SELECT DID FROM hrms.department WHERE D_name = 'Meat'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}	
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Manager', 'Over-time', null, 18800, (SELECT DID FROM hrms.department WHERE D_name = 'Meat'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}			
-					
 			//Seafood Jobs//
 			$load = "INSERT INTO hrms.department(D_name, SID)
 			VALUES('Seafood', '$store')";
@@ -353,59 +172,7 @@ if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['sid']
 				} else {
 					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
 					}
-					
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Associate', 'Full-time', 11.00, null, (SELECT DID FROM hrms.department WHERE D_name = 'Seafood'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Merchandiser', 'Part-time', null, 28667, (SELECT DID FROM hrms.department WHERE D_name = 'Seafood'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Sales Representative', 'Full-time', null, 51615, (SELECT DID FROM hrms.department WHERE D_name = 'Seafood'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}
-			
-			$load = "INSERT INTO hrms.position(POS_name, Job_Type, Hourly, Salary, Dep_ID)
-			VALUES('Clerk', 'Part-time', 7.25, null, (SELECT DID FROM hrms.department WHERE D_name = 'Seafood'))";
-			
-			
-			
-			
-
-			if (mysqli_query($HRMS, $load)) {
-				echo "New record created successfully";
-				} else {
-					echo "Error: " . $load . "<br>" . mysqli_error($HRMS);
-					}			
-			//dummy data for demo//
+			//yet to populate departments//;
 		}
 		else{
 			$error = "Invalid login. Please ensure that your credentials are correct";

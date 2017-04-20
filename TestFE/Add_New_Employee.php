@@ -3,12 +3,7 @@
 <body>
 
 <?php
-include("connect.php");
-	
-	
-	//table
-	$sql="SELECT D_name FROM hrms.department";
-	$records=mysqli_query($HRMS, $sql);
+
 ?>
 
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -89,20 +84,26 @@ include("connect.php");
     <option>Cashier Assistant</option>
     <option>Intern</option>
     <option>Assistant Manager</option>
+  
   </select>
   <br><br>
   
   Department Name:
   <select>
- <?php
-	while($deptview= mysqli_fetch_assoc($records)){
-		
-		echo "<option name='sdept'>".$deptview['D_name']."</option>";		
-	   	
-	}
-
-	?>
-	</select>
+    <option>Select</option>
+    <option>Customer Service</option>
+    <option>Finance</option>
+    <option>Pharmacy</option>
+    <option>Bakery</option>
+    <option>Meat</option>
+    <option>Seafood</option>
+    <option>IT</option>
+    <option>HR</option>
+    <option>Accounting</option>
+    <option>Security</option>
+    <option>Marketing</option>
+    <option>Public Relations</option>
+  </select>
 
 <!-- submit emplyee information -->
 <br><br>
