@@ -2,6 +2,9 @@
 
 The aim of SuperUsers solutions is to develop a human resource database management system for small to medium sized companies specializing in grocery distribution and marketing. Implementations include SQL, PHP, HTML/CSS, and documentation through MS Office and Google Docs.  
 
+
+*m_hrms is the most current version of web-based application. 
+
 <font color="Red"> FINAL PRESENTATION LINK: </font>
 https://docs.google.com/presentation/d/1hrh_p4V8uxWsO872tV7499BhSCKGJn4IAhr9duXzJpw/edit?usp=sharing
 
